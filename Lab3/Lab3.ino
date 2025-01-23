@@ -24,23 +24,14 @@
 
 // the setup function runs once when you press reset or power the board
 void setup() {
+  pinMode(4, OUTPUT);
   pinMode(A6, INPUT);
   int lightlevel = analogRead(A6);
   Serial.begin(9600);
   Serial.println(lightlevel);
   if(lightlevel < 100){
-    Serial.println("It’s really dark!");
+    digitalWrite(4, HIGH);
   }
-  else if(lightlevel <200){
-    Serial.println("It’s dim in here");
-  }
-  else if(lightlevel <700){
-    Serial.println("It’s a little bright");
-  }
-  else if (lightlevel <1000){
-    Serial.println("It’s really bright!”");
-  }
-  Serial.println("hello world"); //My serial monitor did not have any inputs unless I printed this line ??
 }
 
 
